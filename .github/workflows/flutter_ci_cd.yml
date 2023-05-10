@@ -1,4 +1,5 @@
-name : MonoRepo CI/CD
+
+name: MonoRepo CI/CD
 on:
   push:
     branches:
@@ -6,27 +7,22 @@ on:
   pull_request:
     branches:
       - main
-
-jobs :
+jobs:
   flutter_build:
     name: Run Flutter build clean
     runs-on: windows-latest
     steps:
-      # - run: dart pub global activate melos
       - run: melos run build:clean
-
   flutter_test:
     name: Run Flutter app tests
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-java@v1
         with:
-          java-version: 'x.x'
+          java-version: x.x
       - uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: stable
       - run: flutter pub get
-   
-      # - run: flutter analyze
-      - run: flutter test          
+      - run: flutter test
