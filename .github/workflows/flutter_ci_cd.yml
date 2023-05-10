@@ -6,6 +6,7 @@ on:
     branches:
       - main
 
+
 jobs :
   flutter_build:
     name: Run Flutter build clean
