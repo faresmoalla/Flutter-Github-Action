@@ -19,9 +19,8 @@ jobs :
       - uses: subosito/flutter-action@v2
       - run: echo "${RUNNER_TEMP}/flutter/bin" >> $GITHUB_PATH
       - run: echo "${RUNNER_TEMP}/flutter/.pub-cache/bin" >> $GITHUB_PATH
-      # - run: export PATH="$PATH:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin"
       - run: flutter pub global activate melos
-      - run: flutter pub global run melos bootstrap
+      - run: flutter pub global run melos build:clean
 
   # flutter_test:
   #   name: Run Flutter app tests
