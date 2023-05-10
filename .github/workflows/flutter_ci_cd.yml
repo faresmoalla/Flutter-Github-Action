@@ -2,8 +2,7 @@ name : MonoRepo CI/CD
 on:
   push:
   pull_request:
-    branches:
-      - master
+    branches: [ "master" ]
 
 jobs :
   flutter_test:
