@@ -9,13 +9,10 @@ on:
 
 jobs :
   flutter_build:
-    name: Run Flutter app tests
+    name: Run Flutter build clean
     runs-on: windows-latest
     steps:
       - run: melos run build:clean
-      
-      # - run: flutter analyze
-      - run: flutter test          
 
   flutter_test:
     name: Run Flutter app tests
