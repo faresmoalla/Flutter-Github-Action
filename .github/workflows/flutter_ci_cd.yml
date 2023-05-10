@@ -12,6 +12,7 @@ jobs :
     name: Run Flutter build clean
     runs-on: windows-latest
     steps:
+      - run: dart pub global activate melos
       - run: melos run build:clean
 
   flutter_test:
