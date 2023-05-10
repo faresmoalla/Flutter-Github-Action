@@ -28,6 +28,6 @@ jobs :
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-
-      # - run: flutter analyze
+      - run: flutter pub global activate melos && flutter pub global run melos build:clean
+       # - run: flutter analyze
       - run: melos test          
