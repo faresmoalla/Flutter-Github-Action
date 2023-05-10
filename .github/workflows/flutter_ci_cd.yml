@@ -16,7 +16,7 @@ jobs :
       - uses: actions/setup-java@v1
       - uses: subosito/flutter-action@v2
         with:
-          java-version: 'x.x'
+          java-version: '12.x'
       - run: echo "${RUNNER_TEMP}/flutter/bin" >> $GITHUB_PATH
       - run: echo "${RUNNER_TEMP}/flutter/.pub-cache/bin" >> $GITHUB_PATH
       # - run: export PATH="$PATH:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin"
