@@ -12,9 +12,9 @@ jobs :
     runs-on: windows-latest
     steps:
       - uses: subosito/flutter-action@v2
-      - run: export PATH="$PATH:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin"
-      - run: flutter pub global activate melos
-      - run: melos run build:clean
+      # - run: export PATH="$PATH:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin"
+      - run: flutter pub global run melos bootstrap
+      # - run: melos run build:clean
 
   # flutter_test:
   #   name: Run Flutter app tests
