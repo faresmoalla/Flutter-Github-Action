@@ -12,7 +12,9 @@ jobs :
     name: Run Flutter build clean
     runs-on: windows-latest
     steps:
-      - run: dart pub global activate melos
+      - run: flutter pub global activate melos
+
+      # export PATH="$PATH:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin"
       - run: melos run build:clean
 
   flutter_test:
