@@ -1,0 +1,51 @@
+name : rev
+
+packages :
+  - packages /**
+  - packages /*
+  - apps/**
+  
+ide:
+  intellij: true
+
+command:
+  bootstrap:
+    runPubGetInParallel: false
+    usePubspecOverrides: true
+  version:
+    branch : master
+    workspaceChangelog : true      
+    
+    
+
+scripts :
+  format : 
+    run : dart format .
+    description : Format all dart files.
+
+  analyze:
+    run: |
+      melos exec -c 5 -- \ dart analyze . --fatal-infos
+    description: |
+      Analyze Dart code. in all packages.
+
+  test:driver:
+    run: flutter drive --target=test_driver/app.dart
+    description: Run Flutter Driver tests
+    packageFilters:
+      dirExists:
+        - apps
+  get:
+    run: melos exec -- flutter pub get
+    packageFilters:
+      dirExists:
+        - lib
+
+
+
+
+  build:clean:
+    run: melos clean &&
+         melos bootstrap 
+     
+    description: Run all build targets from a clean state.     
