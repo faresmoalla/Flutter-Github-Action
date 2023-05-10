@@ -15,7 +15,7 @@ jobs :
       # - uses: actions/setup-java@v1
       #   with:
       #     java-version: 'x.x'
-      # - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@v2
       - run: echo "${RUNNER_TEMP}/flutter/bin" >> $GITHUB_PATH
       - run: echo "${RUNNER_TEMP}/flutter/.pub-cache/bin" >> $GITHUB_PATH
       - run: flutter pub global activate melos
