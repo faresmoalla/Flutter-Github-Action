@@ -6,6 +6,15 @@ on:
       - main
 
 jobs :
+  flutter_build:
+    name: Run Flutter app tests
+    runs-on: windows-latest
+    steps:
+      - run: melos run build:clean
+      
+      # - run: flutter analyze
+      - run: flutter test          
+
   flutter_test:
     name: Run Flutter app tests
     runs-on: windows-latest
@@ -18,6 +27,6 @@ jobs :
         with:
           channel: 'stable'
       - run: flutter pub get
-      
+
       # - run: flutter analyze
       - run: flutter test          
