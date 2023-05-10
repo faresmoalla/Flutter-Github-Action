@@ -40,10 +40,6 @@ scripts :
     packageFilters:
       dirExists:
         - lib
-
-
-
-
   build:clean:
     run: melos clean &&
          melos bootstrap 
