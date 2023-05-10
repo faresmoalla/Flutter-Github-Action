@@ -11,6 +11,7 @@ jobs :
     name: Run Flutter build clean
     runs-on: windows-latest
     steps:
+      - uses: subosito/flutter-action@v2
       - run: flutter pub global activate melos
 
       # export PATH="$PATH:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin"
