@@ -12,7 +12,7 @@ class BlocService {
       {'bloc'},
       path: './',
     );
-    final blocBox = collection.openBox<Map>('bloc');
+    // final blocBox = collection.openBox<Map>('bloc');
   }
 
   Future<dynamic> create(Bloc bloc) async {
