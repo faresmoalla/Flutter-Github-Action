@@ -1,8 +1,6 @@
 name : MonoRepo CI/CD
 on:
-  push:
-
-  pull_request_target:
+  pull_request:
     branches:
       - main
     types:
@@ -42,7 +40,6 @@ jobs :
     # needs : [flutter_test,flutter_build]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: pascalgn/automerge-action@v0.14.2
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
