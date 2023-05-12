@@ -42,7 +42,9 @@ jobs :
     # needs : [flutter_test,flutter_build]
     runs-on: windows-latest
     steps:
-      - uses: pascalgn/automerge-action@v0.14.2
+      - id: automerge
+        name: automerge
+        uses: pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
