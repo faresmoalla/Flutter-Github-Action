@@ -42,10 +42,11 @@ jobs :
     # needs : [flutter_test,flutter_build]
     runs-on: windows-latest
     steps:
-      - uses: pascalgn/automerge-action@v0.14.2
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""  
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'New changes from branch ${{ github.ref }}'
+          branch: 'main'
 
 
 # name: automerge
