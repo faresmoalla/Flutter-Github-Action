@@ -39,6 +39,7 @@ jobs :
   #      # - run: flutter analyze
   #     - run: melos test 
   automerge: 
+   
     # needs : [flutter_test,flutter_build]
     runs-on: windows-latest
     steps:
