@@ -2,9 +2,13 @@ name : MonoRepo CI/CD
 on:
   push:
 
-  pull_request:
+  pull_request_target:
     branches:
       - main
+    types:
+      - opened
+      - synchronize
+      - reopened  
 jobs :
   flutter_build:
     name: Run Flutter build clean
