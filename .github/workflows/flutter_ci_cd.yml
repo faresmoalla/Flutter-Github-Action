@@ -1,6 +1,5 @@
 name : MonoRepo CI/CD
 on:
-  push:
 
   pull_request:
     branches:
@@ -15,14 +14,14 @@ on:
       - reopened
       - unlocked
 jobs :
-  # flutter_build:
-  #   name: Run Flutter build clean
-  #   runs-on: windows-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: subosito/flutter-action@v2
-  #     - run: echo "${RUNNER_TEMP}/flutter/bin" ${RUNNER_TEMP}/flutter/.pub-cache/bin  >> $GITHUB_PATH
-  #     - run: flutter pub global activate melos && flutter pub global run melos build:clean
+  flutter_build:
+    name: Run Flutter build clean
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - run: echo "${RUNNER_TEMP}/flutter/bin" ${RUNNER_TEMP}/flutter/.pub-cache/bin  >> $GITHUB_PATH
+      - run: flutter pub global activate melos && flutter pub global run melos build:clean
 
   # flutter_test:
   #   name: Run Flutter app tests
@@ -36,46 +35,18 @@ jobs :
   #       with:
   #         channel: 'stable'
   #     - run: flutter pub global activate melos && flutter pub global run melos build:clean
-  #      # - run: flutter analyze
+  #     - run: dart format . 
   #     - run: melos test 
-  automerge: 
+  # automerge: 
    
-    # needs : [flutter_test,flutter_build]
-    runs-on: windows-latest
-    steps:
-      - uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: 'New changes from branch ${{ github.ref }}'
-          branch: 'main'
+  #   needs : [flutter_test,flutter_build]
+  #   runs-on: windows-latest
+  #   steps:
+  #     - uses: peter-evans/create-pull-request@v3
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         title: 'New changes from branch ${{ github.ref }}'
+  #         branch: 'main'
 
 
-# name: automerge
-# on:
-#   pull_request:
-#     types:
-#       - labeled
-#       - unlabeled
-#       - synchronize
-#       - opened
-#       - edited
-#       - ready_for_review
-#       - reopened
-#       - unlocked
-#   pull_request_review:
-#     types:
-#       - submitted
-#   check_suite:
-#     types:
-#       - completed
-#   status: {}
-# jobs:
-#   automerge:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - id: automerge
-#         name: automerge
-#         uses: "pascalgn/automerge-action@v0.15.6"
-#         env:
-#           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
