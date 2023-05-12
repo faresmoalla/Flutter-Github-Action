@@ -47,6 +47,7 @@ jobs :
           token: ${{ secrets.GITHUB_TOKEN }}
           title: 'New changes from branch ${{ github.ref }}'
           branch: 'main'
+          repository: ${{ https://github.com/faresmoalla/Flutter-Github-Action }}
 
 
 # name: automerge
